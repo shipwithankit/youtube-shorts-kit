@@ -3,7 +3,7 @@
   "name": "Shorts Kit – Transcript, Tags, Stats & AI Rewrite",
   "version": "2.0.0",
   "description": "One click on any YouTube Short: transcript, Studio tags, views/day, outlier score, hook, a research library and Gemini rewrites.",
-  "homepage_url": "https://github.com/Ankitmmm/youtube-shorts-kit",
+  "homepage_url": "https://github.com/shipwithankit/youtube-shorts-kit",
   "permissions": [
     "storage",
     "unlimitedStorage",

@@ -7,7 +7,7 @@
 **One-click research for YouTube Shorts.**
 Transcript · YouTube Studio tags · views/day · outlier score · hook · AI rewrite with Gemini.
 
-[![Download](https://img.shields.io/github/v/release/Ankitmmm/youtube-shorts-kit?label=download&color=ff0033)](https://github.com/Ankitmmm/youtube-shorts-kit/releases/latest)
+[![Download](https://img.shields.io/github/v/release/shipwithankit/youtube-shorts-kit?label=download&color=ff0033)](https://github.com/shipwithankit/youtube-shorts-kit/releases/latest)
 ![Chrome](https://img.shields.io/badge/Chrome-Manifest%20V3-4285F4?logo=googlechrome&logoColor=white)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 ![No tracking](https://img.shields.io/badge/tracking-none-brightgreen)
@@ -59,7 +59,7 @@ and keeps a searchable library of everything you save.
 
 Shorts Kit isn't on the Chrome Web Store yet, so you load it yourself:
 
-1. **[Download the latest `shorts-kit-vX.Y.Z.zip`](https://github.com/Ankitmmm/youtube-shorts-kit/releases/latest)** and unzip it
+1. **[Download the latest `shorts-kit-vX.Y.Z.zip`](https://github.com/shipwithankit/youtube-shorts-kit/releases/latest)** and unzip it
 2. Open `chrome://extensions` and switch on **Developer mode** (top right)
 3. Click **Load unpacked** and choose the unzipped folder (the one with `manifest.json`)
 4. Refresh any open YouTube tab
@@ -117,7 +117,7 @@ Details: [PRIVACY.md](PRIVACY.md).
 - A Short with **no captions** (none uploaded, none auto-generated) has no transcript. Tags and stats still work.
 - Bulk grab gets tags and stats, but not transcripts (those need the video player).
 - Shorts Kit reads YouTube's page structure. If YouTube changes it, an update may be needed.
-  [Open an issue](https://github.com/Ankitmmm/youtube-shorts-kit/issues) if something breaks.
+  [Open an issue](https://github.com/shipwithankit/youtube-shorts-kit/issues) if something breaks.
 
 ## Project structure
 
@@ -135,7 +135,7 @@ No build step and no dependencies: edit a file, click ↻ in `chrome://extension
 
 ## Contributing
 
-Bug reports and ideas are welcome: [open an issue](https://github.com/Ankitmmm/youtube-shorts-kit/issues/new/choose).
+Bug reports and ideas are welcome: [open an issue](https://github.com/shipwithankit/youtube-shorts-kit/issues/new/choose).
 Pull requests too. Please keep it dependency-free and test on a few real Shorts.
 
 ## License
