@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Shorts Kit – Library</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="library.css" />
+</head>
+<body>
+  <aside class="side">
+    <div class="brand">⚡ Shorts Kit</div>
+    <nav>
+      <a href="#library" data-view="library">📚 Library <span class="count" id="nav-count"></span></a>
+      <a href="#tags" data-view="tags">🏷️ Tag insights</a>
+      <a href="#bulk" data-view="bulk">📥 Bulk grab</a>
+      <a href="#settings" data-view="settings">⚙️ Settings</a>
+    </nav>
+    <div class="side-foot">Everything is stored only in this Chrome profile.</div>
+  </aside>
+
+  <main>
+    <!-- LIBRARY -->
+    <section id="view-library" class="view">
+      <header class="view-head">
+        <div>
+          <h1>Library</h1>
+          <p class="muted">Shorts you saved with ★ or from Bulk grab.</p>
+        </div>
+        <div class="btns">
+          <button id="lib-export" class="b primary">⬇ Export CSV (Excel)</button>
+          <button id="lib-backup" class="b">Backup</button>
+          <label class="b">Restore<input id="lib-import" type="file" accept="application/json" hidden /></label>
+        </div>
+      </header>
+      <div class="toolbar">
+        <input id="lib-search" class="input grow" type="search" placeholder="Search titles, tags, transcripts…" />
+        <select id="lib-channel" class="input"></select>
+        <select id="lib-sort" class="input">
+          <option value="saved">Newest saved</option>
+          <option value="views">Most views</option>
+          <option value="vpd">Most views / day</option>
+          <option value="outlier">Biggest outliers</option>
+          <option value="published">Newest uploads</option>
+        </select>
+      </div>
+      <div id="lib-list" class="list"></div>
+    </section>
+
+    <!-- TAG INSIGHTS -->
+    <section id="view-tags" class="view">
+      <header class="view-head">
+        <div>
+          <h1>Tag insights</h1>
+          <p class="muted">The tags used most across your saved Shorts. These are your niche's real keywords.</p>
+        </div>
+      </header>
+      <div class="toolbar">
+        <select id="tags-channel" class="input"></select>
+        <label class="check"><input id="tags-outliers" type="checkbox" /> Only Shorts doing better than their channel (1.5×+)</label>
+      </div>
+      <div class="toolbar">
+        <span id="tags-picked" class="muted"></span>
+        <div class="btns">
+          <button id="tags-top" class="b">Select top 15</button>
+          <button id="tags-clear" class="b">Clear</button>
+          <button id="tags-copy" class="b primary">📋 Copy selected</button>
+        </div>
+      </div>
+      <div id="tags-table"></div>
+    </section>
+
+    <!-- BULK GRAB -->
+    <section id="view-bulk" class="view">
+      <header class="view-head">
+        <div>
+          <h1>Bulk grab</h1>
+          <p class="muted">Paste a channel and pull tags + stats for its Shorts in one go. (Transcripts need the player, so get those by opening a Short and clicking ⚡ Analyze.)</p>
+        </div>
+      </header>
+      <div class="toolbar">
+        <input id="bulk-channel" class="input grow" placeholder="Channel link or @handle, e.g. @YouTube" />
+        <button id="bulk-find" class="b primary">Find Shorts</button>
+      </div>
+      <div id="bulk-status" class="muted"></div>
+      <div id="bulk-actions" class="toolbar" hidden>
+        <label class="check"><input id="bulk-all" type="checkbox" checked /> Select all</label>
+        <span id="bulk-picked" class="muted"></span>
+        <div class="btns">
+          <button id="bulk-more" class="b">Load more Shorts</button>
+          <button id="bulk-details" class="b primary">Get tags & stats</button>
+          <button id="bulk-save" class="b">★ Save selected</button>
+          <button id="bulk-export" class="b">⬇ Export CSV</button>
+        </div>
+      </div>
+      <div id="bulk-list" class="list"></div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section id="view-settings" class="view">
+      <header class="view-head">
+        <div>
+          <h1>Settings</h1>
+          <p class="muted">For ✨ Rewrite as my script.</p>
+        </div>
+      </header>
+      <div class="card form">
+        <label class="field">
+          <span class="field-label">Gemini API key</span>
+          <div class="row">
+            <input id="set-key" class="input grow" type="password" autocomplete="off" spellcheck="false" placeholder="Paste your key here" />
+            <button id="set-show" class="b">Show</button>
+          </div>
+          <span class="muted">Get a free key at <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>. It's stored only in this Chrome profile and sent only to Google's Gemini API.</span>
+        </label>
+        <div class="field">
+          <span class="field-label">Model</span>
+          <div class="row">
+            <select id="set-model" class="input grow"><option value="">Auto (newest Flash model)</option></select>
+            <button id="set-check" class="b">Check key & load models</button>
+          </div>
+          <span id="set-check-msg" class="muted"></span>
+        </div>
+        <label class="field">
+          <span class="field-label">My channel style</span>
+          <textarea id="set-style" class="input" rows="5"></textarea>
+          <span class="muted">Gemini follows this for every rewrite. <a href="#" id="set-style-reset">Reset to default</a></span>
+        </label>
+        <label class="field">
+          <span class="field-label">Default script length</span>
+          <select id="set-length" class="input narrow">
+            <option value="30">30 seconds</option>
+            <option value="45">45 seconds</option>
+            <option value="60">60 seconds</option>
+          </select>
+        </label>
+        <div class="row">
+          <button id="set-save" class="b primary">Save settings</button>
+          <span id="set-msg" class="muted"></span>
+        </div>
+      </div>
+      <div class="card form danger">
+        <span class="field-label">Danger zone</span>
+        <div class="row">
+          <button id="set-wipe" class="b">Delete all saved Shorts</button>
+          <span class="muted">Make a Backup first if you might want them back.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside id="drawer" class="drawer" hidden></aside>
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="shared.js"></script>
+  <script src="library.js"></script>
+</body>
+</html>
